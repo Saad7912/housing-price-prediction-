@@ -1,0 +1,59 @@
+Categorical Columns:
+Mode Imputation: Replace missing values with the most frequent category (mode).
+Create a New Category: Introduce a new category like "Unknown" or "Missing" to represent missing values if it makes sense contextually.
+Predictive Models: For high-stakes categorical features, you can predict missing values using other features (e.g., decision trees).
+
+Numerical Columns:
+Mean/Median Imputation: For numerical data, using the mean or median is a common approach. Median imputation is usually preferred when the data is skewed.
+Interpolation: For time series data, you can use forward or backward fill, or linear interpolation.
+Predictive Models: For important numerical features, consider using regression or KNN imputation to predict missing values based on other features.
+Dropping Columns/Rows: If a column has a very high percentage of missing values (e.g., more than 70-80%), it might make sense to drop that column altogether.
+
+Datetime Columns:
+Forward/Backward Fill: Use forward fill (ffill) or backward fill (bfill) to fill missing dates in time series data.
+Derived Features: You can extract components like year, month, day, hour, etc., from datetime columns and handle those separately.
+
+Special Cases:
+High Cardinality Categorical Features: If a categorical column has many unique values (high cardinality), filling missing values with mode or "Unknown" may not be ideal. You might consider more sophisticated techniques, like clustering or modeling.
+Combination of Approaches:
+For some columns, you may need a combination of the above methods. For example, you might fill a numeric column with the median, but treat outliers with a different approach.
+
+------------------------------
+
+How to check skewness of variable
+S= E[(X−μ)^3]/σ^3
+
+Resolving Skewness:
+If the skewness of a variable is significantly different from zero, indicating that the distribution is highly skewed, you may want to transform the data to reduce skewness. Here are some common methods to resolve skewness:
+
+Logarithmic Transformation:
+Use Case: Effective for right-skewed distributions with a long right tail (positive skewness).
+Transformation: Apply a logarithm transformation:
+𝑋new=log(𝑋)
+Note: Ensure that the values in 
+X are positive since the logarithm is undefined for non-positive values.
+
+Square Root Transformation:
+Use Case: Also effective for right-skewed data.
+Transformation: Apply a square root transformation:
+Xnew=(x)^1/2
+Note: This transformation is useful for moderate right skewness.
+
+Reciprocal Transformation:
+Use Case: For heavily right-skewed data, the reciprocal can reduce the impact of large values.
+Transformation: Apply a reciprocal transformation:
+𝑋new= 1/X
+Note: Be cautious with zero or near-zero values, as this transformation can result in extremely large values or be undefined.
+
+Box-Cox Transformation:
+Use Case: A more generalized approach that can handle both left and right skewness.
+Transformation: The Box-Cox transformation is parameterized by 𝜆
+λ, which can be chosen to minimize skewness:
+𝑋new=(𝑋^𝜆−1)/𝜆    if𝜆≠0
+Xnew= logX         if𝜆=0
+
+
+--------------------------------
+for catagorical columns we check relationship 
+--> for catagorical coulmn relationship with catagorical coulmn we used Chi-Square for Categorical-Categorical Relationships
+--> for catagorical coulmn relationship with numerical coulmn we used ANOVA for Categorical-Numerical Relationships
