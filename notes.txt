@@ -57,3 +57,19 @@ Xnew= logX         if𝜆=0
 for catagorical columns we check relationship 
 --> for catagorical coulmn relationship with catagorical coulmn we used Chi-Square for Categorical-Categorical Relationships
 --> for catagorical coulmn relationship with numerical coulmn we used ANOVA for Categorical-Numerical Relationships
+
+-------------------------
+For Feature Selection there are multiple techniques
+--> Filter methods: we check relationship such as correlation b/W variable and target varaiale 
+--> Forward Wrapper method: check by model that which features are giving good result... has very high computation
+--> Embeded method : Combination of both
+
+Note: Embeded mtrix is combination of both filter and wrapper method so it is best over other two methods
+
+it has further 3 Types
+--> Lasso: Good for linear models and when you expect many features to be irrelevant.
+--> Random Forest: Useful for capturing non-linear relationships and when you expect feature interactions.
+--> ElasticNet: A hybrid approach that combines Lasso and Ridge and works well when you expect some features to be correlated.
+
+
+in this scenrio i forward Wrapper is giving better result
